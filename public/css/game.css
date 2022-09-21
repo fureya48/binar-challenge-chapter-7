@@ -1,0 +1,104 @@
+body {
+  background-color: #9c835f;
+}
+
+.navigasi {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  margin-bottom: 40px;
+}
+
+.logo {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navigasi h4 {
+  font-weight: bold;
+  color: #f9b23d;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.container h4 {
+  font-weight: bold;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 125px;
+  background-color: #9c835f;
+  border: none;
+}
+
+.player button:hover {
+  opacity: 0.5;
+}
+
+.pick {
+  background-color: #c4c4c4;
+  width: 125px;
+  height: 125px;
+  border-radius: 15px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#win {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.versus {
+  color: #bd0000;
+}
+
+.computer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.winner {
+  width: 145px;
+  height: 65px;
+  background-color: rgb(27, 137, 100);
+  color: white;
+  font-size: large;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transform: rotate(-35deg);
+}
+
+.refresh {
+  display: flex;
+  justify-content: center;
+}
+
+.refresh button :hover {
+  width: 60px;
+  height: auto;
+}

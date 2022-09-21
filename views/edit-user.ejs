@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="/assets/icon.ico" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <title>Suit Game</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="n-bar">
+      <div class="container" id="navv">
+        <a class="navbar-brand" href="/home"><img src="/assets/icon.ico" width="45px" height="45px" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-lg-5">
+            <a class="nav-link pl-lg-5 active" href="/dashboard">Dashboard</a>
+            <a class="nav-link pl-lg-5" href="/home">Home</a>
+          </div>
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link text-warning" href="/home/api">Hi, Welcome</a>
+            <a class="nav-link" href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid w-100" id="auu">
+      <div class="container d-flex flex-column">
+        <div class="text text-center text-md-left mt-3 mb-3">
+          <h2>Add User</h2>
+        </div>
+        <div class="form w-75 mt-lg-3 align-self-md-start align-self-center">
+          <form class="d-flex flex-column" action="/edit-user/<%= user.id %>" method="POST">
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" class="form-control" name="username" value="<%= user.username %>" />
+              <input type="hidden" class="form-control" name="UserGameId" value="<%= user.id %>" />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="text" class="form-control" name="password" value="<%= user.password %>" />
+            </div>
+            <div class="form-group">
+              <label>DOB</label>
+              <input type="date" class="form-control" name="dob" value="<%= user.UserBiodatum.dob %>" />
+            </div>
+            <div class="form-group">
+              <label>POB</label>
+              <input type="text" class="form-control" name="pob" value="<%= user.UserBiodatum.pob %>" />
+            </div>
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" class="form-control" name="city" value="<%= user.UserBiodatum.city %>" />
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="male" />
+                <label class="form-check-label" for="exampleRadios1"> Male </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="female" />
+                <label class="form-check-label" for="exampleRadios2"> Female </label>
+              </div>
+            </div>
+            <div class="align-self-center align-self-md-start">
+              <button type="submit" class="btn btn-warning mt-3">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  </body>
+</html>

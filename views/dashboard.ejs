@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="/assets/icon.ico" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <title>Suit Game</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="n-bar">
+      <div class="container" id="navv">
+        <a class="navbar-brand" href="/home"><img src="/assets/icon.ico" width="45px" height="45px" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-lg-5">
+            <a class="nav-link pl-lg-5 active" href="/dashboard">Dashboard</a>
+            <a class="nav-link pl-lg-5" href="/home">Home</a>
+          </div>
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link text-warning" href="/home/api">Hi, Welcome</a>
+            <a class="nav-link" href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid w-100" id="auu">
+      <div class="container d-flex flex-column">
+        <div class="text text-center text-md-left mt-3 mb-3">
+          <h2>WELCOME TO DASHBOARD</h2>
+        </div>
+        <div class="button-add align-self-end">
+          <a type="submit" class="btn btn-warning" href="/add-user">Add User</a>
+        </div>
+        <div class="table-responsive-md mt-3">
+          <% if (users.length < 1) { %>
+          <div class="alert alert-warning" role="alert">You don't have any user now. Please add user first!</div>
+          <% } else { %>
+          <table class="table table-bordered table-dark text-center">
+            <thead>
+              <tr class="bg-warning text-black-50">
+                <th scope="col">Id</th>
+                <th scope="col">Username</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% users.forEach(user => { %>
+              <tr>
+                <th scope="row"><%= user.id %></th>
+                <td><%= user.username %></td>
+                <td>
+                  <% if (!user.UserBiodatum) { %>
+                  <a class="btn btn-warning badge mr-md-5" href="/add-biodata/<%= user.id %>">Add</a>
+                  <a class="btn btn-danger badge" href="/delete/<%= user.id %>" onclick="return confirm('Are you sure?')">Delete</a>
+                  <% } else { %>
+                  <a class="btn btn-warning badge" href="/detail-user/<%= user.id %>">Detail</a>
+                  <a class="btn btn-info badge ml-md-5 mr-md-5" href="/edit-user/<%= user.id %>">Edit</a>
+                  <a class="btn btn-danger badge" href="/delete/<%= user.id %>" onclick="return confirm('Are you sure?')">Delete</a>
+                  <% } %>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  </body>
+</html>

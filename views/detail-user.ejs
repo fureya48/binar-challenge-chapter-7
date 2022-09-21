@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="/assets/icon.ico" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <title>Suit Game</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="n-bar">
+      <div class="container" id="navv">
+        <a class="navbar-brand" href="/home"><img src="/assets/icon.ico" width="45px" height="45px" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-lg-5">
+            <a class="nav-link pl-lg-5 active" href="/dashboard">Dashboard</a>
+            <a class="nav-link pl-lg-5" href="/home">Home</a>
+          </div>
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link text-warning" href="/home/api">Hi, Welcome</a>
+            <a class="nav-link" href="/logout">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid w-100" id="auu">
+      <div class="container d-flex flex-column">
+        <div class="text text-center text-md-left mt-3 mb-3">
+          <h2>Detail Page</h2>
+        </div>
+        <div class="container d-flex mt-4">
+          <div class="judul p-3 border border-warning rounded-left">
+            <h5>Id:</h5>
+            <h5>Username:</h5>
+            <h5>DOB:</h5>
+            <h5>POB:</h5>
+            <h5>City:</h5>
+            <h5>Gender:</h5>
+          </div>
+          <div class="isi w-100 border border-warning rounded-right p-3">
+            <h5><%= user.id %></h5>
+            <h5><%= user.username %></h5>
+            <h5><%= user.UserBiodatum.dob %></h5>
+            <h5><%= user.UserBiodatum.pob %></h5>
+            <h5><%= user.UserBiodatum.city %></h5>
+            <h5><%= user.UserBiodatum.gender %></h5>
+          </div>
+        </div>
+        <div class="container">
+          <div class="table-responsive-md mt-3">
+            <% if (histories.length < 1) { %>
+              <div class="alert alert-warning" role="alert">You don't have a game record yet!</div>
+            <% } else { %>
+            <table class="table table-bordered table-dark text-center">
+              <thead>
+                <tr class="bg-warning text-black-50">
+                  <th scope="col">No.</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Playing Time</th>
+                  <th scope="col">Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% histories.forEach(history => { %>
+                <tr>
+                  <th scope="row" class="count"></th>
+                  <td><%= user.username %></td>
+                  <td><%= history.playing_time %></td>
+                  <td><%= history.result %></td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,465 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Page 1 */
+.page-1 {
+  background-image: url("/assets/main-bg.jpg");
+  background-size: cover;
+  /* height: fit-content; */
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+/* Navbar */
+#n-bar {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: "Open Sans" sans-serif;
+  font-weight: bold;
+  font-size: small;
+}
+
+.nav-link {
+  text-transform: uppercase;
+}
+/* /Navbar */
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 280px auto;
+}
+
+.header h1 {
+  font-family: "Bebas Neue" cursive;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: white;
+  font-size: 80px;
+  padding-bottom: 30px;
+}
+
+.header p {
+  font-family: "Open Sans" sans-serif;
+  letter-spacing: 3px;
+  color: white;
+  font-size: 24px;
+  padding-bottom: 30px;
+}
+
+.btn {
+  padding: 10px 70px 10px 70px;
+  font-weight: bold;
+}
+/* /Header */
+
+/* Scroll Navigation */
+.scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+.scroll p {
+  color: white;
+  font-family: "Open Sans" sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  margin: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(-8px);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes ulangi {
+  100% {
+    transform: translateY(-8px);
+  }
+}
+.scroll {
+  margin: 15px 0 0 15px;
+}
+.scroll {
+  animation-name: melayang, ulangi;
+  animation-duration: 0.3s, 1.5s;
+  animation-delay: 0s, 0.3s;
+  animation-timing-function: ease-out, ease-in-out;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: forwards;
+  animation-direction: normal, alternate;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5);
+}
+/* /Scroll Navigation */
+/* Page 1 */
+
+/* Page 2 */
+.page-2 {
+  background-image: url("/assets/the-games-bg.jpg");
+  background-size: cover;
+  /* height: fit-content; */
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.content {
+  padding-top: 350px;
+  padding-bottom: 350px;
+}
+
+.kiri{
+  padding: 10px;
+}
+
+.kanan{
+  padding-left: 100px;
+}
+
+.carousel-indicators li {
+  border-radius: 50%;
+  margin-inline: 10px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+}
+
+.caption {
+  font-family: "Open Sans" sans-serif;
+  color: white;
+  letter-spacing: 2px;
+}
+
+/* Page 2 */
+
+.page-3 {
+  background-image: url("/assets/features.jpg");
+  background-size: cover;
+  height: 980px;
+  background-repeat: no-repeat;
+}
+
+.page-3 .teks {
+  padding: 200px 100px 200px 920px;
+  color: aliceblue;
+}
+
+.page-3 .teks-atas {
+  padding-left: 400px;
+}
+
+.page-3 .teks-atas h1 {
+  font-size: 48px;
+  letter-spacing: 2px;
+  padding-bottom: 0px;
+}
+
+.card-header button {
+  font-family: "Open Sans" sans-serif;
+  font-size: large;
+  padding: 7px 7px 0px 7px;
+  letter-spacing: 1px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 36px;
+}
+
+.card-body .garis {
+  background-color: aliceblue;
+  width: 3px;
+  height: 100px;
+  margin-right: 20px;
+  margin-left: 0;
+}
+/* Page 3 */
+
+/* Page 4 */
+.page-4 {
+  background-image: url("/assets/requirements.png");
+  background-size: cover;
+  /* height: fit-content; */
+  height: 1009px;
+  background-repeat: no-repeat;
+}
+
+.page-4 .teks {
+  padding-top: 180px;
+  color: aliceblue;
+}
+
+.page-4 #title {
+  letter-spacing: 3px;
+  font-family: "Open Sans" sans-serif;
+  font-size: 30px;
+}
+
+.tabel h4 {
+  color: orange;
+  font-family: "Open Sans" sans-serif;
+  letter-spacing: 1px;
+}
+
+.page-4 .tabel {
+  padding-top: 100px;
+  color: aliceblue;
+}
+.page-4 .col-3 {
+  border: 1px rgb(238, 238, 238) solid;
+}
+.page-4 .col-6 {
+  border: 1px white solid;
+}
+/* Page 4 */
+
+/* Page 5 */
+.page-5 {
+  background-image: url("/assets/top-score-bg.png");
+  background-size: contain;
+  /* height: fit-content; */
+  height: 1011px;
+  background-repeat: no-repeat;
+}
+
+.page-5 .container {
+  padding-top: 160px;
+}
+
+.page-5 .teks {
+  padding-top: 210px;
+  color: aliceblue;
+}
+
+#font {
+  font-family: "Open Sans" sans-serif;
+  letter-spacing: 1px;
+}
+
+#font-2 {
+  color: white;
+}
+
+.page-5 .box {
+  width: 400px;
+  height: 160px;
+  background-color: rgb(23, 23, 23);
+}
+
+.box-1 {
+  margin-left: 280px;
+  margin-bottom: 40px;
+}
+
+.box-2 {
+  margin-left: 150px;
+  margin-bottom: 40px;
+}
+
+.photo img {
+  position: absolute;
+  z-index: 1;
+}
+
+#background-photo {
+  background-color: orange;
+  width: 55px;
+  height: 55px;
+  padding: 20px;
+  position: relative;
+}
+
+#font-2 {
+  font-family: "Open Sans" sans-serif;
+  font-size: 15px;
+}
+
+#tanggal {
+  font-family: "Open Sans" sans-serif;
+  font-size: 12px;
+}
+
+.box-3 {
+  margin-left: 280px;
+  margin-bottom: 40px;
+}
+.page-5 .box-bawah {
+  margin-top: 0;
+  padding-top: 0px;
+  font-size: small;
+}
+/* Page 5 */
+
+/* Page 6 */
+.page-6 {
+  background-image: url("/assets/newsletter.png");
+  background-size: cover;
+  /* height: fit-content; */
+  background-repeat: no-repeat;
+}
+
+.gambar img {
+  margin: 200px 0px 10px 80px;
+}
+
+.page-6 .teks {
+  padding-top: 250px;
+}
+
+.teks h1 {
+  font-family: "Bebas Neue" cursive;
+  font-size: 280;
+  letter-spacing: 2px;
+}
+
+.form-control {
+  padding-right: 100px;
+  width: 120px;
+}
+
+.page-6 .btn {
+  padding: 8px 18px 8px 18px;
+  font-family: "Open Sans" sans-serif;
+  font-size: 12px;
+}
+
+#caption {
+  font-family: "Open Sans" sans-serif;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.navigasi-bawah {
+  margin-top: 120px;
+  padding-left: 330px;
+  font-size: small;
+}
+
+.navigasi-bawah a {
+  color: aliceblue;
+  font-weight: bold;
+  margin-left: 25px;
+  font-size: small;
+  padding-left: 5px;
+  letter-spacing: 1px;
+}
+
+.navigasi-bawah img {
+  margin-left: 40px;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: aliceblue;
+  margin-top: 40px;
+}
+
+.created {
+  font-family: "Bebas Nue" cursive;
+  font-size: small;
+  padding-top: 20px;
+}
+
+.privacy {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding-left: 0px;
+  padding-right: 0;
+  margin-right: 0;
+}
+/* Page 6 */
+/* Responsive */
+@media (max-width: 992px) {
+  .page-1 {
+    height: 500px;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto;
+  }
+  .header h1 {
+    font-family: "Bebas Neue" cursive;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: white;
+    font-size: 28px;
+    font-weight: bolder;
+    padding-bottom: 10px;
+  }
+  .header p {
+    font-family: "Open Sans" sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    font-size: 10px;
+    padding-bottom: 10px;
+  }
+
+  .btn {
+    padding: 5px 20px 5px 20px;
+    font-size: 8px;
+    font-weight: bold;
+  }
+  .scroll {
+    display: none;
+  }
+
+  .content {
+    padding-top: 300px;
+  }
+
+  .caption p {
+    font-size: 13px;
+  }
+
+  /* Page 3 */
+  .page-3 {
+    background-size: contain;
+    height: 293px;
+  }
+  .page-3 .teks {
+    padding: 0px 8px 0px 240px;
+    color: aliceblue;
+  }
+
+  .page-3 .teks-atas {
+    padding-left: 2px;
+  }
+
+  .page-3 .teks-atas h1 {
+    font-size: 24px;
+    letter-spacing: 1px;
+    padding-bottom: 0px;
+  }
+
+  .card-header button {
+    font-size: x-small;
+  }
+  .card-body .garis {
+    height: 50px;
+  }
+  .card-body {
+    font-size: x-small;
+  }
+}
