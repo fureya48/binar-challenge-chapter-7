@@ -12,8 +12,8 @@
   <body>
     <div class="container flex-column">
       <div class="login mt-4 flex-column">
-        <h2 class="mb-4 text-center">Let's Play</h2>
-        <form action="/login" method="POST">
+        <h2 class="mb-4 text-center">Sign Up</h2>
+        <form action="/register" method="POST">
           <div class="form-group">
             <label for="exampleInputEmail1">Username</label>
             <input type="username" name="username" class="form-control" placeholder="Enter your username" required />
@@ -22,14 +22,24 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" name="password" class="form-control" placeholder="Enter your password" required />
           </div>
-          <div class="button text-center pt-4">
-            <button type="submit" class="btn btn-warning btn-block rounded-pill">Login</button>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Role</label>
+            <select class="custom-select" name="role">
+                <option selected>Choose</option>
+                <option value="admin">Admin</option>
+                <option value="player">Player</option>
+              </select>
           </div>
-          <p class="text-center mt-3" id="message"><%= message %></p>
+          <div class="button text-center pt-4">
+            <button type="submit" class="btn btn-warning btn-block rounded-pill">Sign Up</button>
+          </div>
+          <div class="button text-center pt-4">
+            <button type="reset" class="btn btn-warning btn-block rounded-pill">Reset</button>
+          </div>
         </form>
       </div>
       <div class="register">
-        <p class="text-center text-light">Don't have an account? <a href="/register" class="text-warning"><b>Sign Up</b></a></p>
+        <p class="text-center text-light">You have account? <a href="/login" class="text-warning"><b>Sign In</b></a></p>
       </div>
     </div>
 
