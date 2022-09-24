@@ -1,9 +1,10 @@
-require("dotenv").config()
+require("dotenv").config();
 const express = require("express");
 // const models = require("./models");
 const session = require("express-session");
 const router = require("./routers");
 
+const db = require("./models");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -16,7 +17,7 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60 * 60 * 1000 },
+    cookie: { maxAge: 3600000 },
   })
 );
 
@@ -148,7 +149,9 @@ app.get("/logout", (req, res) => {
 // app.use("/", (req, res) => {
 //   res.status(404).send("<h1>404 Not Found</h1>");
 // });
-
-app.listen(PORT, () => {
-  console.log("Server connected at http://localhost:3000");
+db.sequelize.authenticate().then(() => {
+  app.listen(PORT, () => {
+    console.log("Server connected at http://localhost:3000");
+    console.log("database connected")
+  });
 });
