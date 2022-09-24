@@ -1,15 +1,38 @@
 "use strict";
+const bcrypt = require("bcrypt");
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       // define association here
     }
+
+    static #encrypt = (password) => bcrypt.hashSync(password, 10);
+
+    static register = ({ username, password, role }) => {
+      const encryptPassword = this.#encrypt(password);
+
+      return this.create({ username, password: encryptPassword, role });
+    };
+
+    checkPassword = (password) => bcrypt.compareSync(password, this.password);
+
+    static authenticate = async ({ username, password }) => {
+      try {
+        const isUser = await this.findOne({
+          where: { username},
+        });
+        if (!isUser) return Promise.reject("User not found!");
+
+        const isPassword = isUser.checkPassword(password);
+
+        if (!isPassword) return Promise.reject("Wrong password");
+
+        return Promise.resolve(isUser);
+      } catch (err) {
+        return Promise.reject(err);
+      }
+    };
   }
   User.init(
     {

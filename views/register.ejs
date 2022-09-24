@@ -24,11 +24,11 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Role</label>
-            <select class="custom-select" name="role">
-                <option selected>Choose</option>
-                <option value="admin">Admin</option>
-                <option value="player">Player</option>
-              </select>
+            <select class="custom-select" name="role" required>
+              <option selected>Choose</option>
+              <option value="admin">Admin</option>
+              <option value="player">Player</option>
+            </select>
           </div>
           <div class="button text-center pt-4">
             <button type="submit" class="btn btn-warning btn-block rounded-pill">Sign Up</button>
@@ -39,7 +39,9 @@
         </form>
       </div>
       <div class="register">
-        <p class="text-center text-light">You have account? <a href="/login" class="text-warning"><b>Sign In</b></a></p>
+        <p class="text-center text-light">
+          You have account? <a href="/login" class="text-warning"><b>Sign In</b></a>
+        </p>
       </div>
     </div>
 
