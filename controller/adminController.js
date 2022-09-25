@@ -1,5 +1,8 @@
+const { User } = require("../models");
+
 module.exports = {
-    dashboardPage: (req, res) => {
-        res.render("dashboard",req.user.dataValues);
-      },
-}
+  dashboardPage: async(req, res) => {
+    const users = await User.findAll()
+    res.render("admin/dashboard", {users});
+  },
+};

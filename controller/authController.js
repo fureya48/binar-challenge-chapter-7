@@ -11,12 +11,12 @@ module.exports = {
       .catch((err) => next(err));
   },
   indexRedirect: (req, res) => res.redirect("/login"),
-  loginPage: (req, res) => res.render("login"),
+  loginPage: (req, res) => res.render("player/login"),
   loginAuth: passport.authenticate("player-local", {
     successRedirect: "/home",
     failureRedirect: "/login",
   }),
-  loginPageAdmin: (req, res) => res.render("login-admin"),
+  loginPageAdmin: (req, res) => res.render("admin/login-admin"),
   loginAuthAdmin: passport.authenticate("admin-local", {
     successRedirect: "/dashboard",
     failureRedirect: "/login/admin",
