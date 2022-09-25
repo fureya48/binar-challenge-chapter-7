@@ -17,18 +17,38 @@ module.exports = (sequelize, DataTypes) => {
 
     checkPassword = (password) => bcrypt.compareSync(password, this.password);
 
-    static authenticate = async ({ username, password }) => {
+    static authenticatePlayer = async ({ username, password }) => {
       try {
-        const isUser = await this.findOne({
-          where: { username},
+        const isPlayer = await this.findOne({
+          where: { username },
         });
-        if (!isUser) return Promise.reject("User not found!");
+        if (!isPlayer) return Promise.reject("User not found!");
 
-        const isPassword = isUser.checkPassword(password);
+        const isPassword = isPlayer.checkPassword(password);
 
         if (!isPassword) return Promise.reject("Wrong password");
 
-        return Promise.resolve(isUser);
+        if(isPlayer.role !== "player") return Promise.reject("Your not a player")
+
+        return Promise.resolve(isPlayer);
+      } catch (err) {
+        return Promise.reject(err);
+      }
+    };
+    static authenticateAdmin = async ({ username, password }) => {
+      try {
+        const isAdmin = await this.findOne({
+          where: { username },
+        });
+        if (!isAdmin) return Promise.reject("User not found!");
+
+        const isPassword = isAdmin.checkPassword(password);
+
+        if (!isPassword) return Promise.reject("Wrong password");
+
+        if(isAdmin.role !== "admin") return Promise.reject("Your not a Super User")
+
+        return Promise.resolve(isAdmin);
       } catch (err) {
         return Promise.reject(err);
       }
