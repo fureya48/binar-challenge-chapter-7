@@ -11,7 +11,7 @@ function checkNotAuthenticatePlayer(req, res, next) {
 function checkAuthenticateAdmin(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
-  } else return res.redirect("/login/admin");
+  } else return res.redirect("/login");
 }
 function checkNotAuthenticateAdmin(req, res, next) {
   if (req.isAuthenticated()) {

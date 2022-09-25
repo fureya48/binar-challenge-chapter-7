@@ -1,13 +1,12 @@
-const router = require("express").Router();
-const {indexRedirect, logOut, loginAuthPlayer, loginAuthAdmin, loginPagePlayer, loginPageAdmin } = require("../controller/authController");
-const { checkAuthenticatePlayer, checkNotAuthenticatePlayer, checkAuthenticateAdmin, checkNotAuthenticateAdmin } = require("../controller/checkAuthenticate");
+const router = require('express').Router()
+const { loginPage, loginPageAdmin, loginAuth, loginAuthAdmin, indexRedirect, logOut } = require('../controller/authController')
+const { checkNotAuthenticatePlayer, checkNotAuthenticateAdmin } = require('../controller/checkAuthenticate')
 
+router.get('/', indexRedirect)
+router.get('/login', checkNotAuthenticatePlayer, loginPage)
+router.post('/login', checkNotAuthenticatePlayer,loginAuth)
+router.get('/login/admin', checkNotAuthenticateAdmin, loginPageAdmin)
+router.post('/login/admin', checkNotAuthenticatePlayer,loginAuthAdmin)
+router.get('/logout', logOut)
 
-router.get("/", indexRedirect);
-router.get("/login", checkAuthenticatePlayer, loginPagePlayer);
-router.get("/login/admin", checkAuthenticateAdmin, loginPageAdmin);
-router.post("/login", checkNotAuthenticatePlayer, loginAuthPlayer);
-router.post("/login/admin", checkNotAuthenticateAdmin, loginAuthAdmin);
-router.get("/logout", logOut);
-
-module.exports = router;
+module.exports = router

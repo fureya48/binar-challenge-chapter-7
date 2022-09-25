@@ -19,18 +19,18 @@ module.exports = (sequelize, DataTypes) => {
 
     static authenticatePlayer = async ({ username, password }) => {
       try {
-        const isPlayer = await this.findOne({
+        const isUser = await this.findOne({
           where: { username },
         });
-        if (!isPlayer) return Promise.reject("User not found!");
+        if (!isUser) return Promise.reject("User not found!");
 
-        const isPassword = isPlayer.checkPassword(password);
+        const isPassword = isUser.checkPassword(password);
 
         if (!isPassword) return Promise.reject("Wrong password");
 
-        if(isPlayer.role !== "player") return Promise.reject("Your not a player")
+        if(isUser.role !== 'player') return Promise.reject("Your not a player")
 
-        return Promise.resolve(isPlayer);
+        return Promise.resolve(isUser);
       } catch (err) {
         return Promise.reject(err);
       }
@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
 
         if (!isPassword) return Promise.reject("Wrong password");
 
-        if(isAdmin.role !== "admin") return Promise.reject("Your not a Super User")
+        if(isAdmin.role !== 'admin') return Promise.reject("Your not a admin")
 
         return Promise.resolve(isAdmin);
       } catch (err) {
