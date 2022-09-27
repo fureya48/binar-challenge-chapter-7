@@ -3,30 +3,8 @@
 
 <br>
 
-<p align="left"> This is a project challenge from Binar Academy Chapter 6. I used Node.js, Express.js, Sequelize, and PostgeSQL for Backend and I used Bootstrap V4.x.x for styling. I was add login verification if username or password not match. If you not login before, you don't play the game.</p>
+<p align="left"> This is a project challenge from Binar Academy Chapter 7. I used Node.js, Express.js, Sequelize, Passport JS and PostgeSQL for Backend and I used Bootstrap V4.x.x for styling. I was add login authentication and authorization if username or password not match. If you not login before, you don't play the game.</p>
 
-<br>
-<br>
-
-<p align="left"> If you want to login, you can use this username and password below: </p>
-
-<br>
-
-<p align="left"><b> - SuperUser: </b></p>
-<p align="left"><b> username: admin </b></p>
-<p align="left"><b> password: admin123 </b></p>
-
-<br>
-
-<p align="left"><b> - User: </b></p>
-<p align="left"><b> username: player </b></p>
-<p align="left"><b> password: pl4Y3r </b></p>
-
-<br>
-<br>
-
-<h3> Enjoy the game 😊! </h3>
-<br>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=fureya48&label=Profile%20views&color=0e75b6&style=flat" alt="fureya48" /> </p>
 
