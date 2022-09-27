@@ -1,5 +1,7 @@
 "use strict";
+require("dotenv").config();
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -28,7 +30,14 @@ module.exports = (sequelize, DataTypes) => {
 
         if (!isPassword) return Promise.reject("Wrong password");
 
-        if(isUser.role !== 'player') return Promise.reject("Your not a player")
+        if (isUser.role !== "player") return Promise.reject("Your not a player");
+        const payload = {
+          id: isUser.id,
+          username: isUser.username,
+        };
+        const token = jwt.sign(payload, process.env.JWT_SECRET);
+        await this.update({ token_user: token }, { where: { username: username } });
+
 
         return Promise.resolve(isUser);
       } catch (err) {
@@ -46,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
 
         if (!isPassword) return Promise.reject("Wrong password");
 
-        if(isAdmin.role !== 'admin') return Promise.reject("Your not a admin")
+        if (isAdmin.role !== "admin") return Promise.reject("Your not a admin");
 
         return Promise.resolve(isAdmin);
       } catch (err) {
@@ -59,6 +68,7 @@ module.exports = (sequelize, DataTypes) => {
       username: DataTypes.STRING,
       password: DataTypes.STRING,
       role: DataTypes.ENUM("admin", "player"),
+      token_user: DataTypes.STRING,
     },
     {
       sequelize,

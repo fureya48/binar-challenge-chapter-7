@@ -30,7 +30,7 @@
               <a class="nav-link pl-lg-5" href="#4">About Me</a>
             </div>
             <div class="navbar-nav ml-auto">
-              <a class="nav-link text-warning" href="/home/api">Hi, <%= username %>  </a>
+              <a class="nav-link text-warning" href="/home/api">Hi, <%= user.username %>  </a>
               <a class="nav-link" href="/logout">Logout</a>
             </div>
           </div>
@@ -43,7 +43,34 @@
         <div class="header">
           <h1>PLAY TRADITIONAL GAME</h1>
           <p>Experience new traditional game play</p>
-          <a class="btn btn-warning" href="/create-room">Play Game</a>
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticBackdrop">
+            Play Game
+          </button>
+        </div>
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Input Room</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="/create-room/<%= user.id %> " method="POST">
+                  <div class="form-group d-inline">
+                    <label>Room Name</label>
+                    <input type="text" name="room_name" class="form-control w-100" required />
+                  </div>
+                  <div class="button text-center pt-4">
+                    <button type="submit" class="btn btn-warning rounded-pill">Create</button>
+                    <button type="reset" class="btn btn-warning rounded-pill">Reset</button>
+                  </div>
+                  <p class="text-center mt-3" id="message"></p>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- /Header Section -->

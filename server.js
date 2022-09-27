@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-// const models = require("./models");
 const passport = require("passport")
 const session = require("express-session");
 const flash = require("express-flash")
@@ -38,9 +37,6 @@ app.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-// app.use("/", (req, res) => {
-//   res.status(404).send("<h1>404 Not Found</h1>");
-// });
 db.sequelize.authenticate().then(() => {
   app.listen(PORT, () => {
     console.log("Server connected at http://localhost:3000");

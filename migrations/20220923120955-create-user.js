@@ -21,6 +21,9 @@ module.exports = {
         type: Sequelize.ENUM("admin", "player"),
         allowNull: false,
       },
+      token_user: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

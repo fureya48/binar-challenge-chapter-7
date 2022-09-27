@@ -1,3 +1,4 @@
+
 function checkAuthenticatePlayer(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
@@ -19,4 +20,5 @@ function checkNotAuthenticateAdmin(req, res, next) {
   } else return next();
 }
 
-module.exports = {checkAuthenticatePlayer, checkNotAuthenticatePlayer, checkAuthenticateAdmin, checkNotAuthenticateAdmin}
+
+module.exports = {checkAuthenticatePlayer, checkNotAuthenticatePlayer, checkAuthenticateAdmin, checkNotAuthenticateAdmin }
